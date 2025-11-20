@@ -1,0 +1,114 @@
+import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import StatsCard from '@/components/StatsCard';
+import { Users, DollarSign, TrendingUp, Shield, Zap, Award } from 'lucide-react';
+
+export default function Index() {
+  const navigate = useNavigate();
+
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-green-600 via-emerald-600 to-teal-700 text-white py-20">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-in fade-in slide-in-from-bottom-8 duration-700">
+            استثمر بذكاء مع موني كاش 💰
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 text-white/90 animate-in fade-in delay-200 duration-700">
+            ابدأ استثمارك من 10$ فقط واحصل على عوائد مضمونة تصل إلى 60%
+          </p>
+          <div className="flex gap-4 justify-center animate-in fade-in delay-300 duration-700">
+            <Button 
+              onClick={() => navigate('/packages')}
+              size="lg" 
+              className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold text-lg px-8 py-6"
+            >
+              ابدأ الاستثمار الآن
+            </Button>
+            <Button 
+              onClick={() => navigate('/how-to-invest')}
+              size="lg" 
+              variant="outline" 
+              className="bg-white/10 hover:bg-white/20 text-white border-white font-bold text-lg px-8 py-6"
+            >
+              كيف تستثمر؟
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-6">
+            <StatsCard 
+              icon={Users}
+              title="عدد المستثمرين"
+              value="5,000+"
+              color="bg-blue-500"
+            />
+            <StatsCard 
+              icon={DollarSign}
+              title="إجمالي الاستثمارات"
+              value="$2.5M+"
+              color="bg-green-500"
+            />
+            <StatsCard 
+              icon={TrendingUp}
+              title="نسبة النجاح"
+              value="98%"
+              color="bg-purple-500"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12">لماذا موني كاش؟</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center p-8 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 hover:shadow-xl transition-all">
+              <div className="bg-blue-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Shield className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">آمن ومضمون</h3>
+              <p className="text-gray-700">نستخدم أحدث تقنيات الأمان لحماية استثماراتك</p>
+            </div>
+
+            <div className="text-center p-8 rounded-xl bg-gradient-to-br from-green-50 to-green-100 hover:shadow-xl transition-all">
+              <div className="bg-green-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Zap className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">سريع وسهل</h3>
+              <p className="text-gray-700">ابدأ الاستثمار في دقائق عبر Binance</p>
+            </div>
+
+            <div className="text-center p-8 rounded-xl bg-gradient-to-br from-yellow-50 to-yellow-100 hover:shadow-xl transition-all">
+              <div className="bg-yellow-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3">عوائد مميزة</h3>
+              <p className="text-gray-700">احصل على عوائد تصل إلى 60% على استثمارك</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-green-600 to-emerald-700 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-6">هل أنت مستعد لبدء رحلتك الاستثمارية؟</h2>
+          <p className="text-xl mb-8">انضم إلى آلاف المستثمرين الناجحين اليوم</p>
+          <Button 
+            onClick={() => navigate('/register')}
+            size="lg"
+            className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold text-lg px-12 py-6"
+          >
+            سجل الآن مجاناً
+          </Button>
+        </div>
+      </section>
+    </div>
+  );
+}
