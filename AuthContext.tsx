@@ -10,6 +10,14 @@ interface AuthContextType {
   addInvestment: (investment: Omit<Investment, 'id' | 'userId'>) => void;
 }
 
+interface StoredUser {
+  id: string;
+  email: string;
+  password: string;
+  name: string;
+  createdAt: string;
+}
+
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
@@ -19,7 +27,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const savedUser = localStorage.getItem('moneycash_user');
     if (savedUser) {
-      const userData = JSON.parse(savedUser);
+      const userData = JSON.parse(savedUser) as User;
       setUser(userData);
       loadInvestments(userData.id);
     }
@@ -28,13 +36,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const loadInvestments = (userId: string) => {
     const saved = localStorage.getItem(`moneycash_investments_${userId}`);
     if (saved) {
-      setInvestments(JSON.parse(saved));
+      setInvestments(JSON.parse(saved) as Investment[]);
     }
   };
 
   const login = (email: string, password: string): boolean => {
-    const users = JSON.parse(localStorage.getItem('moneycash_users') || '[]');
-    const foundUser = users.find((u: any) => u.email === email && u.password === password);
+    const users = JSON.parse(localStorage.getItem('moneycash_users') || '[]') as StoredUser[];
+    const foundUser = users.find((u: StoredUser) => u.email === email && u.password === password);
     
     if (foundUser) {
       const userData = { id: foundUser.id, email: foundUser.email, name: foundUser.name, createdAt: foundUser.createdAt };
@@ -47,13 +55,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const register = (email: string, password: string, name: string): boolean => {
-    const users = JSON.parse(localStorage.getItem('moneycash_users') || '[]');
+    const users = JSON.parse(localStorage.getItem('moneycash_users') || '[]') as StoredUser[];
     
-    if (users.find((u: any) => u.email === email)) {
+    if (users.find((u: StoredUser) => u.email === email)) {
       return false;
     }
 
-    const newUser = {
+    const newUser: StoredUser = {
       id: Date.now().toString(),
       email,
       password,
