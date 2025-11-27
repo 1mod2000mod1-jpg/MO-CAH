@@ -74,7 +74,7 @@ export default function Dashboard() {
           <h2 className="text-3xl font-bold">استثماراتي</h2>
           <Button 
             onClick={() => navigate('/packages')}
-            className="bg-green-600 hover:bg-green-700 gap-2"
+            className="bg-green-600 hover:bg-purple-700 gap-2"
           >
             <Plus className="w-5 h-5" />
             استثمار جديد
@@ -89,7 +89,7 @@ export default function Dashboard() {
               <p className="text-gray-600 mb-6">ابدأ رحلتك الاستثمارية الآن</p>
               <Button 
                 onClick={() => navigate('/packages')}
-                className="bg-green-600 hover:bg-green-700"
+                className="bg-purple-600 hover:bg-purple-600"
               >
                 اختر باقة الاستثمار
               </Button>
