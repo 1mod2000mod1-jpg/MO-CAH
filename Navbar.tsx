@@ -13,7 +13,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-green-600 to-emerald-700 text-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-purple-600 to-black text-white shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2 text-2xl font-bold hover:opacity-90 transition">
@@ -22,10 +22,10 @@ export default function Navbar() {
           </Link>
 
           <div className="flex items-center gap-6">
-            <Link to="/" className="hover:text-yellow-300 transition">الرئيسية</Link>
-            <Link to="/packages" className="hover:text-yellow-300 transition">الباقات</Link>
-            <Link to="/how-to-invest" className="hover:text-yellow-300 transition">كيف تستثمر</Link>
-            <Link to="/contact" className="hover:text-yellow-300 transition">اتصل بنا</Link>
+            <Link to="/" className="hover:text-purple-300 transition">الرئيسية</Link>
+            <Link to="/packages" className="hover:text-purple-300 transition">الباقات</Link>
+            <Link to="/how-to-invest" className="hover:text-purple-300 transition">كيف تستثمر</Link>
+            <Link to="/contact" className="hover:text-purple-300 transition">اتصل بنا</Link>
             
             {user ? (
               <div className="flex items-center gap-3">
@@ -46,7 +46,7 @@ export default function Navbar() {
                   <Button variant="secondary" size="sm">دخول</Button>
                 </Link>
                 <Link to="/register">
-                  <Button variant="default" size="sm" className="bg-yellow-500 hover:bg-yellow-600 text-black">
+                  <Button variant="default" size="sm" className="bg-purple-500 hover:bg-purple-600 text-white">
                     تسجيل
                   </Button>
                 </Link>
