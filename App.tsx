@@ -13,6 +13,7 @@ import Dashboard from './pages/Dashboard';
 import Deposit from './pages/Deposit';
 import HowToInvest from './pages/HowToInvest';
 import Contact from './pages/Contact';
+import Admin from './pages/Admin';
 import NotFound from './pages/NotFound';
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
                 <Route path="/deposit" element={<Deposit />} />
                 <Route path="/how-to-invest" element={<HowToInvest />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/admin" element={<Admin />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
