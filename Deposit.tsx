@@ -169,7 +169,7 @@ export default function Deposit() {
 
                 <Button 
                   type="submit" 
-                  className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-6"
+                  className="w-full bg-purple-600 hover:bg-green-700 text-white font-bold py-6"
                 >
                   تأكيد الإيداع
                 </Button>
